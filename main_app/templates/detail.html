@@ -3,7 +3,6 @@
 
 {% block content %}
   <div class="treasure panel panel-default">
-
     <div class="panel-heading">
       <h3 class="panel-title">{{ treasure.name }}</h3>
     </div>
@@ -35,7 +34,11 @@
           <td>{{ treasure.location }}</td>
         </tr>
       </table>
+      <button id="likes" data-id="{{ treasure.id }}"
+              class="btn-mini btn-danger glyphicon glyphicon-heart"
+              type="button">
+        {% if treasure.likes > 0 %} {{ treasure.likes }} {% endif %}
+      </button>
     </div>
-
   </div>
 {% endblock %}

@@ -40,6 +40,11 @@
       {{ form.as_p }}
       <input type="submit" value="Submit" />
     </form>
+    <button id="likes" data-id="{{ treasure.id }}"
+            class="btn-mini btn-danger glyphicon glyphicon-heart"
+            type="button">
+      {% if treasure.likes > 0 %} {{ treasure.likes }} {% endif %}
+    </button>
   </div>
 </div>
 {% endblock %}

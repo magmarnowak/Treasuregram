@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^login/$', views.login_view, name='login'),
     url(r'^register/$', views.register, name='register'),
     url(r'^logout/$', views.logout_view, name='logout'),
+    url(r'^like_treasure/$', views.like_treasure, name="like_treasure"),
 ]
 # for image upload:
 if settings.DEBUG:
