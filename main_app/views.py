@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from main_app.models import Treasure
+from .models import Treasure, User
 from .forms import TreasureForm
 
 def index(request):
@@ -15,5 +15,14 @@ def detail(request, treasure_id):
 def post_treasure(request):
     form=TreasureForm(request.POST, request.FILES)
     if form.is_valid():
-        form.save(commit = True)
+        treasure = form.save(commit=False)
+        treasure.user=request.user
+        treasure.save()
     return HttpResponseRedirect('/')
+
+def profile(request, username):
+    user = User.objects.get(username=username)
+    treasures = Treasure.objects.filter(user=user)
+    return render(request, 'profile.html',
+                    {'username':username,
+                    'treasures':treasures})
