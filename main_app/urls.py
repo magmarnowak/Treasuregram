@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^user/(\w+)/$', views.profile, name='profile'),
     url(r'^login/$', views.login_view, name='login'),
     url(r'^register/$', views.register, name='register'),
+    url(r'^logout/$', views.logout_view, name='logout'),
 ]
 # for image upload:
 if settings.DEBUG:
