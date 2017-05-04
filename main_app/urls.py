@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^post_url/$', views.post_treasure, name='post_treasure'),
     url(r'^user/(\w+)/$', views.profile, name='profile'),
     url(r'^login/$', views.login_view, name='login'),
+    url(r'^register/$', views.register, name='register'),
 ]
 # for image upload:
 if settings.DEBUG:
